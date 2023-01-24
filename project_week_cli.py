@@ -116,6 +116,9 @@ def parse_project_page(filepath):
     # Strip `- `
     key_investigators = [key_investigator[2:] for key_investigator in key_investigators]
 
+    # Ignore placeholders
+    key_investigators = filter(lambda value: value not in ("TBD"), key_investigators)
+
     (orgToIndividuals, individualToOrgs) = parseContributors(key_investigators)
 
     return {
