@@ -142,6 +142,9 @@ def main():
 
     for filepath in args.file:
         directory = os.path.dirname(filepath).split("/")[-1]
+        if directory == "Projects":
+            # Streamline integration with command-line lookup of README files by ignoring the template one.
+            continue
         metadata = parse_project_page(filepath)
         print(
             f"1. [{metadata['title']}](Projects/{directory}/README.md) ({', '.join(metadata['investigators'])})"
