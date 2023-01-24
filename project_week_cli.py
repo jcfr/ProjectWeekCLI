@@ -145,7 +145,11 @@ def main():
         if directory == "Projects":
             # Streamline integration with command-line lookup of README files by ignoring the template one.
             continue
-        metadata = parse_project_page(filepath)
+        try:
+            metadata = parse_project_page(filepath)
+        except Exception as exc:
+            print(f"Failed to process {filepath}")
+            raise exc
         print(
             f"1. [{metadata['title']}](Projects/{directory}/README.md) ({', '.join(metadata['investigators'])})"
         )
