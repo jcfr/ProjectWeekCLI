@@ -27,7 +27,7 @@ project_week_cli=$HOME/Projects/ProjectWeekCLI/project_week_cli.py
 
 (\
   cd ${project_week}/Projects/;  \
-  fd README.md -a -exec python3 ${project_week_cli} {} \
+  fd README.md -i -a -exec python3 ${project_week_cli} {} \
 )
 ```
 
